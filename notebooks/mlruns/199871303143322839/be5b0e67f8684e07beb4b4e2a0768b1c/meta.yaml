@@ -1,0 +1,14 @@
+artifact_uri: file:///home/vergabyte/meteo_forecast/notebooks/mlruns/199871303143322839/be5b0e67f8684e07beb4b4e2a0768b1c/artifacts
+end_time: 1754562522890
+entry_point_name: ''
+experiment_id: '199871303143322839'
+lifecycle_stage: active
+run_id: be5b0e67f8684e07beb4b4e2a0768b1c
+run_name: Naive
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754562522882
+status: 3
+tags: []
+user_id: vergabyte

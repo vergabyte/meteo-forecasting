@@ -1,0 +1,14 @@
+artifact_uri: file:///home/vergabyte/meteo_forecast/notebooks/mlruns/199871303143322839/c3a89c87c8e2455e95a8a680550d8fc7/artifacts
+end_time: 1754562643945
+entry_point_name: ''
+experiment_id: '199871303143322839'
+lifecycle_stage: active
+run_id: c3a89c87c8e2455e95a8a680550d8fc7
+run_name: Holt-Winters
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754562643929
+status: 3
+tags: []
+user_id: vergabyte

@@ -1,0 +1,6 @@
+artifact_location: file:///home/vergabyte/meteo_forecast/notebooks/mlruns/199871303143322839
+creation_time: 1754561229882
+experiment_id: '199871303143322839'
+last_update_time: 1754561229882
+lifecycle_stage: active
+name: forecasting_comparison

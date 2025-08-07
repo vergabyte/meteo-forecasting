@@ -1,0 +1,24 @@
+name: forecasting
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - ipython
+  - jupyterlab
+  - matplotlib
+  - notebook
+  - numpy
+  - pandas
+  - scikit-learn
+  - black
+  - flake8
+  - isort
+  - loguru
+  - mlflow
+  - scikit-optimize
+  - tqdm
+  - pip:
+    - python-dotenv
+    - -e .
+    - meteostat

@@ -1,0 +1,14 @@
+artifact_uri: file:///home/vergabyte/meteo_forecast/notebooks/mlruns/199871303143322839/31ba16fd94a0463a9a23404b7f549379/artifacts
+end_time: 1754563257214
+entry_point_name: ''
+experiment_id: '199871303143322839'
+lifecycle_stage: active
+run_id: 31ba16fd94a0463a9a23404b7f549379
+run_name: Moving Avg
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754563257205
+status: 3
+tags: []
+user_id: vergabyte

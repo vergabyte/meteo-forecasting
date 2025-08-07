@@ -1,0 +1,14 @@
+artifact_uri: file:///home/vergabyte/meteo_forecast/notebooks/mlruns/199871303143322839/e9d4e2d8ff634ee3a586580fccb18fa0/artifacts
+end_time: 1754563774991
+entry_point_name: ''
+experiment_id: '199871303143322839'
+lifecycle_stage: active
+run_id: e9d4e2d8ff634ee3a586580fccb18fa0
+run_name: Holt-Winters Tuning (Bayesian)
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754563774974
+status: 3
+tags: []
+user_id: vergabyte
