@@ -10,8 +10,8 @@ Time series forecasting for weather data using statistical methods such as Naive
 ## Setup
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/vergabyte/meteo-forecasting.git
+cd meteo_forecasting
 conda env create -f environment.yml
 conda activate forecasting
 pip install -e .
