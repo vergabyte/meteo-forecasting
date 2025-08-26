@@ -2,13 +2,13 @@ import numpy as np
 import pandas as pd
 
 
-def naive_forecast(y: pd.Series, forecast_horizon: int) -> pd.Series:
+def naive_forecast(y, forecast_horizon):
     value = y.iloc[-1]
     index = pd.date_range(start=y.index[-1] + pd.Timedelta(1, "D"), periods=forecast_horizon)
     return pd.Series([value] * forecast_horizon, index=index)
 
 
-def moving_average_forecast(y: pd.Series, forecast_horizon: int, window_size: int) -> pd.Series:
+def moving_average_forecast(y, forecast_horizon, window_size):
     if len(y) < window_size:
         raise ValueError(f"Need at least {window_size} values to compute average")
 
@@ -17,7 +17,7 @@ def moving_average_forecast(y: pd.Series, forecast_horizon: int, window_size: in
     return pd.Series([average] * forecast_horizon, index=index)
 
 
-def ses_forecast(y: pd.Series, forecast_horizon: int = 1, alpha: float = 0.5) -> pd.Series:
+def ses_forecast(y, forecast_horizon, alpha):
     if not 0 < alpha < 1 or y.empty:
         raise ValueError("alpha must be in (0, 1) and y must be non-empty")
 
@@ -29,9 +29,7 @@ def ses_forecast(y: pd.Series, forecast_horizon: int = 1, alpha: float = 0.5) ->
     return pd.Series([s] * forecast_horizon, index=index)
 
 
-def holt_trend_forecast(
-    y: pd.Series, forecast_horizon: int, alpha: float, beta: float
-) -> pd.Series:
+def holt_trend_forecast(y, forecast_horizon, alpha, beta):
     if len(y) < 2:
         raise ValueError("Need at least two data points to initialize.")
 
@@ -48,14 +46,7 @@ def holt_trend_forecast(
     return pd.Series(forecast, index=index)
 
 
-def holt_winters_forecast(
-    y: pd.Series,
-    forecast_horizon: int,
-    alpha: float,
-    beta: float,
-    gamma: float,
-    seasonal_periods: int,
-) -> pd.Series:
+def holt_winters_forecast(y, forecast_horizon, alpha, beta, gamma, seasonal_periods):
     if len(y) < 2 * seasonal_periods:
         raise ValueError("Need at least two full seasonal cycles.")
 

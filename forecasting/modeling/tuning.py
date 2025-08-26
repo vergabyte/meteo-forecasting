@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 from skopt import gp_minimize
 from skopt.space import Real
 from skopt.utils import use_named_args
@@ -14,17 +13,12 @@ space = [
 ]
 
 
-def create_objective(y_train: pd.Series, y_test: pd.Series, seasonal_periods: int):
+def create_objective(y_train, y_test, seasonal_periods):
     @use_named_args(space)
-    def objective(alpha: float, beta: float, gamma: float) -> float:
+    def objective(alpha, beta, gamma):
         try:
             y_pred = holt_winters_forecast(
-                y_train,
-                forecast_horizon=len(y_test),
-                alpha=alpha,
-                beta=beta,
-                gamma=gamma,
-                seasonal_periods=seasonal_periods,
+                y_train, len(y_test), alpha, beta, gamma, seasonal_periods
             )
             if not np.isfinite(y_pred).all():
                 return np.inf
@@ -35,19 +29,13 @@ def create_objective(y_train: pd.Series, y_test: pd.Series, seasonal_periods: in
     return objective
 
 
-def bayesian_tune(
-    y_train: pd.Series,
-    y_test: pd.Series,
-    seasonal_periods: int = 365,
-    n_calls: int = 30,
-    random_state: int = 42,
-) -> tuple[dict, pd.Series, object]:
+def bayesian_tune(y_train, y_test, seasonal_periods, n_calls, random_state):
     objective = create_objective(y_train, y_test, seasonal_periods)
     result = gp_minimize(
         objective, space, n_calls=n_calls, random_state=random_state, verbose=False
     )
     params = dict(zip(["alpha", "beta", "gamma"], result.x))
     forecast = holt_winters_forecast(
-        y_train, forecast_horizon=len(y_test), **params, seasonal_periods=seasonal_periods
+        y_train, len(y_test), params["alpha"], params["beta"], params["gamma"], seasonal_periods
     )
     return params, forecast, result

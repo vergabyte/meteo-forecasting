@@ -1,15 +1,15 @@
 import matplotlib.pyplot as plt
 
 
-def plot_time_series(data, title="Time Series Plot", xlabel="Time", ylabel=None):
+def plot_time_series(data, title, xlabel, ylabel):
     ax = data.plot(figsize=(12, 4), title=title)
-    ax.set(xlabel=xlabel, ylabel=ylabel)
+    ax.set(xlabel, ylabel)
     plt.tight_layout()
     plt.grid(True)
     plt.show()
 
 
-def plot_forecasts(y_true, forecasts, title="Forecast Comparison"):
+def plot_forecasts(y_true, forecasts, title):
     plt.figure(figsize=(12, 4))
     y_true.plot(label="Actual", color="black", linewidth=1.5)
 
@@ -25,7 +25,7 @@ def plot_forecasts(y_true, forecasts, title="Forecast Comparison"):
     plt.show()
 
 
-def plot_forecast_with_train(y_train, y_test, y_pred, title="Forecast vs Actual"):
+def plot_forecast_with_train(y_train, y_test, y_pred, title):
     plt.figure(figsize=(12, 4))
     plt.plot(y_train.index, y_train, label="Train", linestyle="--")
     plt.plot(y_test.index, y_test, label="Actual", color="black")
